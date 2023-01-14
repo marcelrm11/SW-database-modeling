@@ -57,6 +57,12 @@ class Character(Base):
     gender = Column(String(30))
     planet_id = Column(Integer, ForeignKey('planet.id'))
     planet = relationship(Planet)
+
+class Character_X_Vehicle(Base):
+    __tablename__ = 'character_x_vehicle'
+    id = Column(Integer, primary_key=True)
+    character_id = Column(Integer, ForeignKey('character.id'))
+    character = relationship(Character)
     vehicle_id = Column(Integer, ForeignKey('vehicle.id'))
     vehicle = relationship(Vehicle)
 
